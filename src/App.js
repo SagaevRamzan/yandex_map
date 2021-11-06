@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Header from "./Head/Header";
+import Footer from "./Footer/Footer";
+import Home from "./Home";
+import Features from "./Features";
+import Contacts from "./Contacts";
+import {Route, Redirect, Switch, NavLink} from "react-router-dom";
+import Yandex_map from "./Yandex_map";
+import NotFound from "./NotFound";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+        <div>
+          <Header/>
+            <NavLink to="" >
+
+            </NavLink>
+            <Switch>
+              <Route exact path="/">
+                  <Home/>
+              </Route>
+              <Route path="/features">
+                  <Features/>
+              </Route>
+              <Route path="/contacts">
+                  <Contacts/>
+              </Route>
+              <Route path="/yandex_map" >
+                    <Yandex_map/>
+              </Route>
+              <Route>
+                    <NotFound/>
+              </Route>
+            </Switch>
+        </div>
+     <div className="footer">
+         <Footer/></div>
     </div>
   );
 }
